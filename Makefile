@@ -1,5 +1,11 @@
 SOURCE_DIR := src
 
+pre-commit: lint build
+	tox run -e py38,py39,py310,py311,py312,mypy,flake8,black,isort
+
+build:
+	poetry build
+
 setup:
 	poetry install --no-root --with dev
 
