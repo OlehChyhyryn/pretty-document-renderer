@@ -1,14 +1,15 @@
 from __future__ import annotations
 
+from typing import Optional, cast
 import uuid
 
 from pretty_text_renderer.blocks.base import BaseBlock
 from pretty_text_renderer.content.container import Container
 from pretty_text_renderer.exceptions import PteChildNameAlreadyExists
-from pretty_text_renderer.renderers.container import ContainerRenderer
+from pretty_text_renderer.renderers.container import BaseContainerRenderer, ContainerRenderer
 
 
-class ContainerBlock(BaseBlock[Container, ContainerRenderer]):
+class ContainerBlock(BaseBlock[Container, BaseContainerRenderer]):
     """
     Special content type that can contain any other content types as its children.
 
@@ -21,10 +22,8 @@ class ContainerBlock(BaseBlock[Container, ContainerRenderer]):
 
     _content_type = Container
 
-    def __init__(self) -> None:
-        content = Container()
-        renderer = ContainerRenderer()
-        super().__init__(content, renderer)
+    def __init__(self, content: Optional[Container] = None, renderer: Optional[BaseContainerRenderer] = None) -> None:
+        super().__init__(content or Container(), cast("BaseContainerRenderer", renderer or ContainerRenderer()))
 
     def get_children_map(self) -> dict[str, BaseBlock]:
         """
