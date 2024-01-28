@@ -9,7 +9,7 @@ if TYPE_CHECKING:
 
 
 @dataclasses.dataclass
-class BaseContent(abc.ABC):
+class BaseContent(abc.ABC):  # noqa: B024
     def copy(self) -> Self:
         return dataclasses.replace(self)
 
