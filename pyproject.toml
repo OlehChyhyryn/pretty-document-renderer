@@ -1,6 +1,6 @@
 [tool.black]
 line-length = 120
-target-version = ['py38']
+target-version = ["py38", "py39", "py310", "py311", "py312"]
 
 [tool.isort]
 profile = "black"
@@ -33,7 +33,7 @@ typing-extensions = "^4.9.0"
 
 
 [tool.poetry.group.dev.dependencies]
-black = "^23.12.1"
+black = "^24.1.0"
 isort = "^5.13.2"
 mypy = "^1.8.0"
 flake8 = "^7.0.0"
