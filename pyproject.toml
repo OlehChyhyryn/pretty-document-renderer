@@ -40,7 +40,7 @@ flake8 = "^7.0.0"
 pytest = "^8.0.0"
 pyupgrade = "^3.15.0"
 flake8-type-checking = "^2.8.0"
-flake8-bugbear = "^24.1.17"
+flake8-bugbear = "^24.2.6"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
